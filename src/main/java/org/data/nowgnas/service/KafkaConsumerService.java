@@ -23,6 +23,8 @@ public class KafkaConsumerService {
         } catch (Exception e) {
             // Handle processing errors
             log.error("Failed to process message: {}", record, e);
+        }finally{
+            acknowledgment.acknowledge();
         }
     }
 }
